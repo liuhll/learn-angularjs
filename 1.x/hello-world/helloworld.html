@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <!--Hello {{'world'}}!-->
+
+        Your Name: <input type="text" ng-model="yourname" placeholder="World">
+        <hr>
+        Hello {{yourname || 'world'}}
+    </div>
+</body>
+</html>
