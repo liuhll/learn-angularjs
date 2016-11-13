@@ -13,7 +13,13 @@
                 alert(this.message);
             }
         };
-
-
     });
+
+    app.controller("ConditionalCtrl",function($scope){
+        $scope.data={
+            message:"Hello",
+            flag:true
+        }
+    });
+
 })();

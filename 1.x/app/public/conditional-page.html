@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>{{"AngularJs条件判断"}}</title>
+    <script src="../../lib/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+
+    <!--
+    ng-if与ng-show/ng-hide的区别:
+      1. 如果使用ng-if来控制元素是否显示，则在不显示的情况下，ng-if中包含的内容，会被全部从HTML中移除掉。
+      2. 而如果使用ng-show/ng-hide，AngularJS只是使用CSS控制将内容隐藏起来。
+
+    使用场景：
+      1. 如果内容较多，且之后不会使用到，那么可以使用ng-if；
+      2. 如果之后还可能会显示出来，那么可以使用ng-show/ng-hide
+    -->
+    <div ng-controller="ConditionalCtrl">
+        <input type="checkbox" ng-model="data.flag"> 通过checkbox来控制文字是否显示
+
+        <div ng-if="data.flag">
+            {{data.message}}
+            <input type="text" ng-model="data.flag">
+        </div>
+
+        <div ng-show="data.flag">
+            <p>ng-show中的文字</p>
+            <input type="text" ng-model="data.flag">
+        </div>
+
+        <div ng-hide="data.flag">
+            <p>ng-hide中的文字</p>
+            <input type="text" ng-model="data.flag">
+        </div>
+
+    </div>
+
+    <!--
+    注意：
+    - 在ng-model,ng-if等标签中传入参数时，是不需要双括号{{与}}将参数包裹起来的
+    -->
+</body>
+</html>
