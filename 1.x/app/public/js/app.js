@@ -22,4 +22,22 @@
         }
     });
 
+    app.controller('repeatCtrl',function($scope){
+        $scope.list=[
+            {
+                name: "Harry"
+            },
+            {
+                name: "Tom"
+            },
+            {
+                name: "Jerry"
+            }
+        ];
+
+        $scope.onClick = function(index,data){
+            alert("点击了"+index+"按钮,"+"数据:"+data);
+        }
+    });
+
 })();

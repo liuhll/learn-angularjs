@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/repeat.js"></script>
+</head>
+<body>
+    <div ng-controller="repeatCtrl">
+        <span ng-repeat="x in list">
+            {{x.name}}<br/>
+        </span>
+
+        <hr/>
+
+        <div>
+            <!--
+            $index:
+            $index是从0开始计算的
+            -->
+            <table>
+                <tr ng-repeat="x in list">
+                    <td>{{x.name}}</td>
+                    <td><input type="button" value="我是第{{$index}}行的按钮"
+                               ng-click="onClick($index,x.name)"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
