@@ -1,0 +1,14 @@
+/* 删除线 */
+.strike {
+    text-decoration: line-through;
+}
+
+/* 粗体 */
+.bold {
+    font-weight: bold;
+}
+
+/* 红色 */
+.red {
+    color: red;
+}

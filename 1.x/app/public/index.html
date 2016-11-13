@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+ng-app可以将网页自动初始化为一个AngularJS应用，
+这样你才能在网页中使用各种AngularJS提供的功能（比如前一节介绍的基本表达式功能）
+-->
+<html lang="zh" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <!--引入JavaScript文件的顺序是有差异的，
+    如果我们将上面代码的angular.js和app.js文件呼唤，
+    那么网页将不能正常的展示-->
+    <script src="../../lib/angular/angular.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <link href="css/index.css" rel="stylesheet">
+
+    <!--
+     AngularJS的作用域
+     将ng-app声明放置在某个元素中，那么AngularJS只会针对 某个元素中的内容进行处理。
+    -->
+    <title>{{"学习AngularJS 1.x"}}</title>
+</head>
+<body >
+    {{"Hello World!"}}
+    <div>
+        Hello {{'World'}}!
+    </div>
+
+    <div ng-controller="FirstCtrl">
+        <h1>{{data.message}}</h1>
+
+        <input type="text" ng-model="data.message"> <br/>
+
+        <input type="button" ng-click="data.onBtnClick()" value="按钮1 ng-click指令">
+        <br/>
+        <input type="text" ng-model="data.style">
+        <div class="{{data.style}}">示例文本(可输入strike bold red)来调整样式</div>
+
+    </div>
+
+    <!-- 以下表达式不会输出任何内容，因为它在FirstCtrl之外-->
+    <p>下面的内容不会显示</p>
+    <p>{{data.message}}</p>
+
+</body>
+</html>
