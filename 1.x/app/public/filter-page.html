@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngluarJs Filter</title>
+    <script src="../../lib/angular/angular.min.js"></script>
+    <script src="js/filter.js"></script>
+    <link href="../../lib/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body ng-app="filterApp">
+{{ 1234 | number:2 }}
+<!--//显示两位小数，结果 1,234.00-->
+<br/>
+{{ 1234.56 | currency:"人民币￥":0}}
+<!--//转化为货币后输出(保留0位小数，四舍五入)，结果为-->
+<!--//人民币￥1,234.00-->
+<div ng-init='list=[{ "name": "Harry" }, { "name": "Tom" }, { "name": "Jerry" } ]'>
+{{ list | json }}
+<!--//将对象转化为json文本输出，结果为-->
+<!--//[ { "name": "Harry" }, { "name": "Tom" }, { "name": "Jerry" } ]-->
+
+<tr ng-repeat="x in list | orderBy:'name'"/>
+    <!--//对显示的数据列表按照name进行排序-->
+    <!--//结果为显示顺序Harry,Jerry,Tom-->
+<br/>
+    <!--多个filer的同时应用-->
+    {{ list | orderBy:'name' | json }}
+    <br/>
+    <!--创建自己的Filter-->
+    <div ng-controller="FirstCtrl">
+        <h1>{{data.message | reverse}}</h1>
+        <input type="text" ng-model="data.message">
+    </div>
+    <hr/>
+    <!--通过filter进行搜索-->
+    <!--
+    AngularJS提供了通过filter的搜索功能。
+    当然，这个搜索功能并不是非常常用，因为搜索工作现在一般在服务端完成。
+    如果数据量非常小（几百行以内），可以考虑使用本功能来筛选结果。
+    -->
+    <div ng-controller="SearchFilterCtrl">
+        <input type="text" ng-model="searchText">
+        <table>
+            <tr ng-repeat="x in list | filter:searchText">
+                <td ng-bind="x.name"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
