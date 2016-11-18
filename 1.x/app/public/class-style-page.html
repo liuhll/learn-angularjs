@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-class | ng-style</title>
+    <script src="../../lib/angular/angular.js"></script>
+    <script src="js/class-style.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="classApp">
+<h3>ng-class</h3>
+<div ng-controller="ClassCtrl">
+    <!-- 此处放置了ng-class，并设定了每个样式激活时的条件（对应下方3个复选框）-->
+    <p ng-class="{strike: deleted, bold: important, 'has-error': error}">示例文字</p>
+    <input type="checkbox" ng-model="deleted">
+    选中后上方文字将加上删除线（style中加上strike类） <br>
+    <input type="checkbox" ng-model="important">
+    选中后上方文字将变化为粗体（style中加上bold类） <br>
+    <input type="checkbox" ng-model="error">
+    选中后上方文字将变红，背景变黄（style中加上has-error类）
+
+    <div>
+        <p ng-class="data.style">直接使用字符串作为样式</p>
+        <p ng-class="[data.style, {'orange': data.warning}]">同时应用两种样式</p>
+        <input type="text" ng-model="data.style">
+    </div>
+<br>
+
+    <div>
+        <input type="button" value="开始动画" ng-click="style='animate'">
+        <br>
+        <input type="button" value="恢复原始" ng-click="style=''">
+        <br>
+        <span class="base-class" ng-class="style">示例文本</span>
+    </div>
+
+</div>
+<!--
+ng-style
+ng-style提供的功能比ng-class要少一些，只支持样式的传入
+-->
+<hr/>
+<h3>ng-style</h3>
+<p>
+    通过样式传入，我们可以直接向元素传入对应的样式，实现样式动态化的效果。
+</p>
+
+<div ng-controller="StyleCtrl">
+    <span ng-style="{'background-color':data.colorInput}">示例文本</span>
+    <!--//colorInput为$scope中的对象，传入文本即可-->
+
+    <span ng-style="data.styleText">示例文本</span>
+    <!--//styleText为样式为 '{'color':red}'类型的文本-->
+
+</div>
+
+官网的一个示例
+
+<input type="button" value="设置字体颜色为红色" ng-click="myStyle={color:'red'}">
+<input type="button" value="设置背景颜色" ng-click="myStyle={'background-color':'blue'}">
+<input type="button" value="清除样式" ng-click="myStyle={}">
+<br>
+<span ng-style="myStyle">示例文本</span>
+<pre>当前样式为{{myStyle}}</pre>
+
+</body>
+</html>
