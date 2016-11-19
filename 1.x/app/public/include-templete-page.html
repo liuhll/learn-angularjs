@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-include and ng-templte directive</title>
+    <script src="../../lib/angular/angular.min.js"></script>
+    <script src="js/include.js"></script>
+</head>
+<body>
+<!--
+引入ng-include和模板ng-template是定义和使用HTML代码碎片的功能。
+用于将HTML切碎分别存储，并根据需求再去获取对应的代码块，达到加速访问和代码复用的效果
+-->
+<div ng-app="includeApp">
+    <div ng-controller="DemoCtrl">
+        <!--  直接传入一个网页的地址，请注意这里的使用用法 -->
+        <!--  'view/part.html' 外部有单引号 -->
+        <div ng-include="'templete/part.html'"  onload="templete.onloadFunc()"></div>
+
+        <!--ng-include的用法也可以直接作为标签名使用-->
+        <ng-include src="'templete/part.html'" onload="templete.onloadFunc1()"></ng-include>
+
+        <!-- 假设$scope中有template:{url:"http://..."}这个对象 -->
+        <!--
+        貌似没有效果
+        -->
+        <!--<div ng-include="templete.url" style="border: 1px solid black;height: 200px"></div>-->
+
+        <!--
+        onload	可选， 文件载入后执行的表达式。
+        autoscroll	可选，包含的部分是否在指定视图上可滚动。
+        -->
+
+    </div>
+</div>
+
+<hr>
+<h3>模板ng-template</h3>
+<div ng-app="templeteApp">
+    <script type="text/ng-template" id="demo.html">
+        <p>this is a ng-temlete demo page</p>
+    </script>
+
+    <div ng-include="'demo.html'"></div>
+</div>
+</body>
+</html>
