@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习ng-options指令</title>
+    <script src="../../lib/angular/angular.min.js"></script>
+    <script src="js/options.js"></script>
+</head>
+<body ng-app="optionsApp">
+<div ng-controller="OptionsCtrl">
+    <div>
+        <label>选择一个颜色(无空选项)</label>
+        <select ng-model="colorChosen" ng-options="color.name for color in colors">
+
+        </select>
+        <span>当前选中的颜色: {{ colorChosen.name }}</span>
+        <div style="border: solid 1px black; height: 20px"
+             ng-style="{'background-color':colorChosen.color}">
+
+        </div>
+    </div>
+    <hr>
+    <div>
+        <label>选择一个颜色（有空选项）</label>
+        <select ng-model="colorChosen1" ng-options="color.name for color in colors1">
+            <option value="">- - 选择一个颜色 - -</option>
+        </select>
+        <div style="border: 1px solid black; height: 20px;" ng-style="{'background-color':colorChosen1.color}"></div>
+    </div>
+    <hr>
+    <div>
+        <h3>分组，按组排序</h3>
+        按组排列group by
+        <!--
+        ng-options也支持按组排列数据，使用group by语法
+        -->
+        <select ng-model="colorGroupChosen" ng-options="color.name group by color.type for color in groupColors">
+            <option value="">- - 选择一个颜色 - -</option>
+        </select>
+
+        <div style="border: 1px solid black; height: 20px;" ng-style="{'background-color':colorGroupChosen.color}"></div>
+
+    </div>
+    <hr/>
+    <div>
+        <h3>禁用某些选项disable when</h3>
+        <!--
+        ng-options还可以通过disable when语法来设置选项是否可选，同样的，我们需要在列表中先新增字段：
+        -->
+        <select ng-model="disabeChosen" ng-options="color.name
+        group by color.type
+        disable when color.disabled
+        for color in disableColors">
+            <option value="">- - 选择一个颜色 - -</option>
+        </select>
+        <div style="border: 1px solid black;height: 20px;" ng-style="{'background-color':disabeChosen.color}">
+
+        </div>
+    </div>
+    <hr/>
+    <div>
+        <h3>将对象作为参数传入</h3>
+        <!--
+        在上面的例子中，我们传入的是一个列表array。
+        ng-options也支持以对象object的方式传入数据：
+        使用object的方式传入数据，一般是为了简化配置
+        -->
+        <select ng-model="country" ng-options="k as v for (k,v) in countries">
+            <option value=""> - - 选择一个国家 - -  </option>
+        </select>
+        <br>
+        <span>当前选中的国家:{{ country }}</span>
+    </div>
+  </div>
+</body>
+</html>
