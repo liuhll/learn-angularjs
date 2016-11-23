@@ -10,5 +10,30 @@
     <div ng-controller="FirstCtrl">
         <people></people>
     </div>
+
+    <div ng-controller="SecondCtrl">
+        <!--
+        E
+        -->
+        <people1 info="hongLiang"></people1>
+        <people1 info="meimei"></people1>
+
+        <!--
+        A
+        -->
+        <div people1 info="hongLiang"></div>
+        <div people1 info="meimei"></div>
+
+        <div ng-controller="ThridCtrl">
+            <p>{{peopleList | json}}</p>
+            <div ng-repeat="person in peopleList">
+                <people2 info="person" ></people2>
+            </div>
+            <p>{{hongLiang | json}}</p>
+            <people3 name="{{hongLiang.name}}" sex="{{hongLiang.sex}}"></people3>
+        </div>
+
+
+</div>
 </body>
 </html>
