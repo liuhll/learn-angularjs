@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../lib/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="directiveApp">
+<script type="text/ng-template" id="part1.html">
+    <h1>{{info.title}}</h1>
+    <p>{{info.content}}</p>
+</script>
+<div ng-controller="ngTemplateCtrl">
+<div form-directive1 info="partInfo"></div>
+</div>
+</body>
+</html>

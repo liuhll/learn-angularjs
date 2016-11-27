@@ -55,6 +55,28 @@
         };
     });
 
+    app.directive('formDirective',function () {
+        return {
+            restrict:"A",
+            templateUrl:"part.html",
+            scope:{
+                info:"="
+            }
+        };
+    });
+
+    app.directive('formDirective1',function () {
+        return {
+            restrict:"A",
+            templateUrl:function () {
+                return "part1.html";
+            },
+            scope:{
+                info:"="
+            }
+        };
+    });
+
     app.controller("FirstCtrl",function ($scope) {
         $scope.data={
             name:"Hongliang.Liu",
@@ -91,5 +113,21 @@
             name:"Hongliang.Liu1",
             sex:'Male'
         };
-    })
+    });
+
+    app.controller("templateCtrl",['$scope',function ($scope) {
+        $scope.partInfo = {
+            title:"这是模板页的标题",
+            content:"这个是模板页的内容"
+        };
+    }]);
+
+    app.controller('ngTemplateCtrl',['$scope',function($scope){
+        $scope.partInfo={
+            title:"通过ng-template封装的part.html",
+            content:"这里是part.html中的内容",
+        };
+    }]);
+
+
 })();
