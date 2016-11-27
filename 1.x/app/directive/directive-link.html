@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 保证在angular.js之前引入jquery.js -->
+    <script src="../../lib/jquery/dist/jquery.min.js"></script>
+    <script src="../../lib/angular/angular.min.js"></script>
+    <script src="js/linkApp.js"></script>
+    <style>
+        .strike{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body ng-app="linkApp">
+<div ng-controller="FirstCtrl">
+    <link-direc a="a" b="b" c="c"></link-direc>
+</div>
+</body>
+</html>
