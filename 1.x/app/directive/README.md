@@ -51,3 +51,6 @@ AngularJS在解析HTML时，会将名称取出（如`people-list-array`)，并�
 ## 为什么要先去除data-/x-部分
 - `data-/x-` 存在的原因是需要符合HTML5标准
 - 我们在`ng-app`和`ng-controller`前加上`data-`前缀，则可以通过HTML5的验证
+
+## AngularJs指令的其他学习资源
+- [ng指令中的compile与link函数解析 ](http://www.ifeenan.com/angularjs/2014-09-04-[%E8%AF%91]NG%E6%8C%87%E4%BB%A4%E4%B8%AD%E7%9A%84compile%E4%B8%8Elink%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90/)
