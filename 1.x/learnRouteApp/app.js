@@ -1,14 +1,26 @@
-(function () {
-    var app = angular.module('routeApp',[
-        'ngRoute',
-        'HomeController'
-    ]);
-
-    app.config(['$routeProvider',function ($routeProvider) {
-        $routeProvider.
-        when('/home', {templateUrl: 'templates/home/index.html',   controller: HomeController}).
-        when('/home/:id', {templateUrl: 'templates/home/detail.html', controller: HomeDetailCtrl}).
-        otherwise({redirectTo: '/home'});
-    }]);
-
-})();
+(function(){
+    var app = angular.module('routeApp',['ngRoute']);
+    app.config(['$logProvider','$routeProvider', function($logProvider,$routeProvider){
+        $logProvider.debugEnabled(true);
+        $routeProvider
+            .when('/',{
+                controller: 'HomeController',
+                contrllerAs: 'home',
+                templateUrl: 'home/index.html'
+            })
+            .when('/home',{
+                controller: 'HomeController',
+                contrllerAs: 'home',
+                templateUrl: 'home/index.html'
+            }).when('/home/detail',{
+                controller:'DetailController',
+                contrllerAs:'detail',
+                templateUrl:'home/detail.html'
+        }).when('/home/other',{
+            controller:'OtherController',
+            contrllerAs:'other',
+            templateUrl:'home/other.html'
+        })
+          .otherwise('/');
+    }])
+}());
