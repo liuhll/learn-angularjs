@@ -1,0 +1,6 @@
+<h3>从服务中共获取到{{schools.shoolCount}}个学校</h3>
+
+<ul>
+    <li ng-repeat="school in schools.shoolList">名称：{{school.name}}<br/>地址:{{school.address}}</li>
+    <button ng-click="schools.refresh()">刷新</button>
+</ul>
