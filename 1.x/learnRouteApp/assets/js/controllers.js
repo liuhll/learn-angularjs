@@ -35,14 +35,32 @@
 
     }]);
 
-    app.controller("ClassroomController",["$routeParams","dataService",function ($routeParams,dataService) {
+    // app.controller("ClassroomController",["$routeParams","dataService",function ($routeParams,dataService) {
+    //     var vm = this;
+    //     debugger;
+    //     vm.classInfo = dataService.getClassroom($routeParams.id);
+    //
+    // }]);
+
+    app.controller("ClassroomController",["$routeParams","$window","classroom",function ($routeParams,$window,classroom) {
         var vm = this;
         debugger;
-        vm.classInfo = dataService.getClassroom($routeParams.id);
+        var classes = classroom;
+        vm.classInfo = classes.filter(function (val) {
+            return val["id"] == $routeParams.id;
+        })[0];
+        
+        vm.doBack = function () {
+            $window.history.back();
+        }
 
     }]);
 
     app.controller("OtherController",["$scope",function ($scope) {
 
+
     }]);
+
+
+
 })();
