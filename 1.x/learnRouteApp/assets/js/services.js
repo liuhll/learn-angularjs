@@ -22,7 +22,30 @@
                 return schoolList;
             },
             getAllClassrooms:function () {
-                
+              var classList = [
+                  {
+                      id:1,
+                      className:"A班",
+                      classAdviser:"张三"
+                  },
+                  {
+                      id:2,
+                      className:"B班",
+                      classAdviser:"LiSi"
+                  },
+                  {
+                      id:3,
+                      className:"C班",
+                      classAdviser:"2.Wang"
+                  }
+              ];
+              return classList;
+            },
+            getClassroom:function (id) {
+                var classList = this.getAllClassrooms();
+                return classList.filter(function (val) {
+                   return  val["id"] == id;
+                })[0];
             },
             getAllActivities:function () {
 

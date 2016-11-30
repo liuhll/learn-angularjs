@@ -35,10 +35,15 @@
                 templateUrl: 'home/allSchools.html',
                 caseInsensitiveMatch: true
             })
-            .when('/classrooms/:id',{
+            .when('/classrooms',{
                 controller: 'AllClassroomsController',
                 controllerAs: 'classrooms',
-                templateUrl: 'home/allClassrooms.html'
+                templateUrl: 'home/classInfo.html'
+            })
+            .when('/classrooms/:id',{
+                controller: 'ClassroomController',
+                controllerAs: 'classroom',
+                templateUrl: 'home/classDetail.html'
             })
             .when('/activities',{
                 controller: 'AllActivitiesController',

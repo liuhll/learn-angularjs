@@ -29,7 +29,16 @@
 
     }]);
 
-    app.controller("DetailController",["$scope",function ($scope) {
+    app.controller("AllClassroomsController",["$scope","dataService",function ($scope,dataService) {
+        var vm = this;
+        vm.classInfos = dataService.getAllClassrooms();
+
+    }]);
+
+    app.controller("ClassroomController",["$routeParams","dataService",function ($routeParams,dataService) {
+        var vm = this;
+        debugger;
+        vm.classInfo = dataService.getClassroom($routeParams.id);
 
     }]);
 

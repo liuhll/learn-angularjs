@@ -1,0 +1,8 @@
+<div ng-if="classroom.classInfo">
+    <p>班级Id:{{classroom.classInfo.id}}</p>
+    <p>班级名称:{{classroom.classInfo.className}}</p>
+    <p>班主任:{{classroom.classInfo.classAdviser}}</p>
+</div>
+<div ng-hide="classroom.classInfo">
+    不存在的班级
+</div>
