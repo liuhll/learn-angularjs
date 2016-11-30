@@ -1,6 +1,13 @@
 (function () {
     var app = angular.module("routeApp");
 
+    app.controller("HomeController",["$scope",function ($scope) {
+        var vm = this;
+        vm.message = "Welcome to School Buddy";
+
+        $scope.data ="学习angularJs路由";
+    }]);
+
     app.controller("AllSchoolsController",["$scope","$route","$log","dataService","notifier",
         function ($scope,$route,$log,dataService,notifier) {
             var vm = this;
